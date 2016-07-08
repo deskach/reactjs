@@ -1,0 +1,3 @@
+email:		ste.grider@gmail.com
+twitter:	@sg_in_sf
+github:		github.com/stephengrider
