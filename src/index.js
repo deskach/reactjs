@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import YTSearch from 'youtube-api-search';
 
 import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
 
 const API_KEY = "AIzaSyCg_lS0N0cyWuUbwevaWekrFfSZH88QyDA";
 
@@ -23,6 +24,7 @@ class App extends React.Component {
   render() {
     return <div>
       <SearchBar />
+      <VideoList videos={this.state.videos} />
     </div>;
   }
 }
@@ -33,5 +35,6 @@ ReactDOM.render(<App />, document.querySelector('.container'));
 /* NOTES:
  - const is ES6 feature;
  - in react the root component is the one allowed to do data-fetching from (Redux, REST-api etc);
- -
+ - <VideoList videos={} ...> - here prop 'videos' is passed to the component. The child component accesses it
+ through an input argument passed to the constructor.
  */
