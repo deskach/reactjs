@@ -1,0 +1,5 @@
+/////////////
+//NOTES on book-list project:
+////////////
+- a reducer is a function that returns a piece of the application state;
+
