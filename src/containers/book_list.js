@@ -17,15 +17,15 @@ class BookList extends React.Component {
       </ul>
     );
   }
+
+  static mapStateToProps(state) {
+    return {
+      books: state.books
+    };
+  }
 }
 
-function mapStateToProps(state) {
-  return {
-    books: state.books
-  };
-}
-
-export default connect(mapStateToProps)(BookList);
+export default connect(BookList.mapStateToProps)(BookList);
 
 /* NOTES:
 * connect function allows for automatic props update of the BookList component whenever state changes;
