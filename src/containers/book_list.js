@@ -9,7 +9,7 @@ class BookList extends React.Component {
       return (
         <li
           onClick={ () => this.props.selectBook(book)}
-          key={book.title} 
+          key={book.title}
           className="list-group-item">{book.title}
         </li>
       );
@@ -18,9 +18,11 @@ class BookList extends React.Component {
 
   render() {
     return (
-      <ul className="list-group col-sm-4">
-        {this.renderList()}
-      </ul>
+      <div className="col-sm-4">
+        <ul className="list-group">
+          {this.renderList()}
+        </ul>
+      </div>
     );
   }
 
