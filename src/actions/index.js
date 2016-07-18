@@ -11,6 +11,6 @@ export function fetchWeather(city) {
 
   return {
     type: FETCH_WEATHER,
-    payload: request
+    payload: request //if the payload is a promise redux_promise will wait for the response and put it in place
   };
 }

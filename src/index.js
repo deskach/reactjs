@@ -8,6 +8,7 @@ import App from './components/app';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+//^if the payload is a promise redux_promise will wait for the response and put it in place (see fetchWeather action)
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
