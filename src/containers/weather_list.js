@@ -12,30 +12,32 @@ class WeatherList extends Component {
 
   renderWeather(cityData) {
     const name = cityData.city.name;
-    const temps = cityData.list.map(weather => weather.main.temp);
     const key = name + this._counter;
+    const temps = cityData.list.map(weather => weather.main.temp);
+    const pressures = cityData.list.map(weather => weather.main.pressure);
+    const humidities = cityData.list.map(weather => weather.main.humidity);
 
     this._counter++;
 
     return (
       <tr key={key}>
-        <td>{name}</td>
-        <td>
-          <Chart data={temps} color="orange"/>
-        </td>
+        <th scope="row" width="10%">{name}</th>
+        <td><Chart data={temps} color="orange" units="C" /></td>
+        <td><Chart data={pressures} color="green" units="hPa" /></td>
+        <td><Chart data={humidities} color="brown" units="%" /></td>
       </tr>
     )
   }
 
   render() {
     return (
-      <table className="table table-hover">
+      <table className="table table-hover table-sm">
         <thead>
         <tr>
           <th>City</th>
-          <th>Temperature</th>
-          <th>Pressure</th>
-          <th>Humidity</th>
+          <th>Temperature (C)</th>
+          <th>Pressure (hPa)</th>
+          <th>Humidity (%)</th>
         </tr>
         </thead>
         <tbody>

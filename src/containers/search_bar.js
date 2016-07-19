@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
     event.preventDefault();
 
     this.props.fetchWeather(this.state.term);
-    this.setState({term: ''});
+    this.setState({term: 'Brisbane'});
   }
 
   render() {
