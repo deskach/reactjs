@@ -7,7 +7,8 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: 'Brisbane' };
+    this._defaultCity = 'London';
+    this.state = { term: this._defaultCity };
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -22,7 +23,7 @@ class SearchBar extends React.Component {
     event.preventDefault();
 
     this.props.fetchWeather(this.state.term);
-    this.setState({term: 'Brisbane'});
+    this.setState({term: this._defaultCity});
   }
 
   render() {
