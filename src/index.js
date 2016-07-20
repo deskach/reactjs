@@ -6,11 +6,12 @@ import { Router, browserHistory } from 'react-router';
 // ^ browserHistory, hashHistory, memoryHistory - all provide different ways of managing URLs
 
 import reducers from './reducers';
+import routes from './routes';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <Router history={browserHistory} />
+    <Router history={browserHistory} routes={routes} />
   </Provider>
   , document.querySelector('.container'));
