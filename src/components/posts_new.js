@@ -10,9 +10,13 @@ class PostsNew extends React.Component {
     return (
       <form onSubmit={handleSubmit(this.props.createPost)} >
         <h3>Create a new post</h3>
-        <div className="form-group">
+
+        <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`} >
           <label>Title</label>
           <input type="text" className="form-control" {...title} />
+          <div className="text-help">
+            { title.touched ? title.error : '' }
+          </div>
         </div>
 
         <div className="form-group">
@@ -31,7 +35,18 @@ class PostsNew extends React.Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if(!values.title) {
+    errors.title = 'Enter a user name';
+  }
+
+  return errors;
+}
+
 export default reduxForm({
   form: 'PostsNewForm',
-  fields: ['title', 'categories', 'content']
+  fields: ['title', 'categories', 'content'],
+  validate
 }, null, { createPost })(PostsNew);
