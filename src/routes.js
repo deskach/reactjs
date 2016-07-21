@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 
 import App from './components/app';
+import PostsIndex from './components/posts_index';
 
 const Greeting = () => {
   return (
@@ -11,6 +12,11 @@ const Greeting = () => {
 
 export default (
   <Route path="/" component={App}>
-    <Route path="greet" component={Greeting} />
+    <IndexRoute component={PostsIndex}/>
+    <Route path="greet" component={Greeting}/>
   </Route>
 );
+
+/*^ If the route is '/' - show App and PostsIndex,
+    if it is /greet - show App and greeting
+ */
