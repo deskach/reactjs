@@ -9,6 +9,12 @@ const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 const API_KEY = '?key=asfhsadkljasdnksadfkljhlaskjf10';
 const url = `${ROOT_URL}/posts${API_KEY}`;
 
+/* NOTES
+  every action contains a payload property.
+  When action finishes that payload is returned to the outer world.
+  If there is a Promise in there, its then and other members can be executed.
+ */
+
 export function fetchPosts() {
   const request = axios.get(url);
 
