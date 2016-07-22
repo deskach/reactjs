@@ -9,12 +9,18 @@ import { Link } from 'react-router';
  */
 
 class PostsShow extends React.Component {
+  static contextTypes = {
+    router: React.PropTypes.object
+  };
+
   componentWillMount() {
     this.props.fetchPost(this.props.params.id);
   }
 
   onDeleteClick() {
-    this.props.deletePost(this.props.params.id);
+    this.props.deletePost(this.props.params.id).then(() => {
+      this.context.router.push('/');
+    })
   }
 
   render() {
