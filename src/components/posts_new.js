@@ -55,6 +55,7 @@ function validate(values) {
   if(!values.title) {
     errors.title = 'Enter a user name';
   }
+  // TODO: implement same validations for categories and content form fields.
 
   return errors;
 }
