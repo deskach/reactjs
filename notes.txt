@@ -1,0 +1,7 @@
+Higher Order components are base components to hold common logic for their
+children.
+
+Provider class, for example, holds ReduxStore and watches for changes inside
+the Store. When a change occurs Provider returns it to Connect Higher Order
+Component (HOC). HOC is usually custom component inherited from React.Cmponnent.
+
