@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import * as actions from "../actions";
+import {Link} from "react-router";
+import {authenticate} from "../actions";
 
 class Header extends Component {
   authButton() {
@@ -19,17 +20,16 @@ class Header extends Component {
     )
   }
 
-  //TODO: replace <a> by <Link> when routers are defined
   render() {
     return (
-      <div className="navbar navbar-static-top">
+      <div className="navbar navbar-default">
         <nav className="container-fluid">
           <ul className="nav navbar-nav">
-            <li className="active nav-item">
-              <a href="/">Home</a>
+            <li className="nav-item">
+              <Link to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a href="/resources">Resources</a>
+              <Link to="/resources">Resources</Link>
             </li>
             <li className="nav-item">
               {this.authButton()}
@@ -40,9 +40,10 @@ class Header extends Component {
     )
   }
 
-  static mamState2props({authenticated}) {
-    return {authenticated};
+  static mamState2props(state) {
+    console.log(`mamState2props(${JSON.stringify(state)})`);
+    return {authenticated: state.authenticated};
   }
 }
 
-export default connect(Header.mamState2props, actions)(Header);
+export default connect(Header.mamState2props, {authenticate})(Header);

@@ -7,10 +7,10 @@ const rootReducer = combineReducers({
 
 export default rootReducer;
 
-export function authenticationReducer(state = false, action) {
+export function authenticationReducer(state = null, action) {
   switch (action.type) {
     case CHANGE_AUTH:
-      console.log(`authenticationReducer(${state}, ${JSON.stringify(action)})`);
+      console.log(`authenticationReducer(${JSON.stringify(state)}, ${JSON.stringify(action)})`);
       return action.payload;
   }
 
