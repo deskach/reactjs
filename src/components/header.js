@@ -1,9 +1,19 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import * as actions from "../actions";
 
 class Header extends Component {
   authButton() {
+    if (this.props.authenticated) {
+      return (
+        <button onClick={() => this.props.authenticate(false)}>
+          Sign out
+        </button>
+      )
+    }
+
     return (
-      <div>
+      <div onClick={() => this.props.authenticate(true)}>
         <button >Sign in</button>
       </div>
     )
@@ -29,6 +39,10 @@ class Header extends Component {
       </div>
     )
   }
+
+  static mamState2props({authenticated}) {
+    return {authenticated};
+  }
 }
 
-export default Header
+export default connect(Header.mamState2props, actions)(Header);
