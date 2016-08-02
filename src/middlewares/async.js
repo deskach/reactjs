@@ -16,6 +16,9 @@ export default function ({dispatch}) {
 }
 
 /*
- * next means - send this middlware to the next action in my stack. If there
+ * - next means - send this middlware to the next action in my stack. If there
  * are no more actions the result will be sent to the reducers;
+ *
+ * - dispatch means - start from the top of the middleware stack to make all
+ * middlewares process current action again.
  * */
