@@ -4,12 +4,19 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const router = require('./router');
 
-const app = express();
+// DB Setup
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:auth/auth');
+
 
 /// App Setup
+const app = express();
+
 app.use(morgan('combined'));
 app.use(bodyParser.json({type: '*/*'}));
 router(app);
+
 
 /// Server Setup
 const port = process.env.PORT || 3090;
