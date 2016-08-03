@@ -4,6 +4,11 @@ exports.signup = function (req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
 
+  if (!email || !password) {
+    console.log(email);
+    return res.status(422).send({error: 'You must provide email and password'});
+  }
+
   // See if a user with the given email exists
   User.findOne({email}, (err, existingUser) => {
     if (err) {
@@ -23,7 +28,7 @@ exports.signup = function (req, res, next) {
         return next(err);
       }
 
-      res.json(user);
+      res.json({success: true});
     });
 
     // Otherwise create & save a user record
