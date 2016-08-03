@@ -45,3 +45,9 @@ exports.signup = function (req, res, next) {
     // Respond to the request indicating the user was created
   });
 };
+
+
+/* Notes: some resources on JWT are
+ https://hwt.io
+
+ */
