@@ -1,2 +1,3 @@
 # reactjs
-looking at react.js
+Stephen Grider's Reddux Simple starter cloned from https://github.com/StephenGrider/ReduxSimpleStarter
+
