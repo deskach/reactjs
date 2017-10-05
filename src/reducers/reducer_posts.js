@@ -8,7 +8,5 @@ export default function (state = {}, action = {}) {
             break;
     }
 
-    console.log(`STATE.POSTS: `, state);
-
     return state;
 }
